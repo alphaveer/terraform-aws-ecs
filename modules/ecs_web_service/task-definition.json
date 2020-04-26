@@ -1,0 +1,23 @@
+[{
+    "image": "${DOCKER_IMAGE}",
+    "essential": true,
+    "cpu": 0,
+    "memoryReservation": ${SERVICE_MEMORY},
+    "name": "${SERVICE_NAME}",
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "${LOG_GROUP}",
+        "awslogs-region": "${AWS_REGION}",
+        "awslogs-stream-prefix": "${SERVICE_NAME}"
+      }
+    },
+    "portMappings": [{
+      "hostPort": 0,
+      "protocol": "tcp",
+      "containerPort": ${SERVICE_PORT}
+    }],
+    "environment": ${ENVIRONMENT},
+    "secrets": ${SECRETS},
+    "command": ${COMMAND}
+}]
