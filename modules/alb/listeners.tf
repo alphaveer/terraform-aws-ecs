@@ -4,8 +4,7 @@ resource "aws_lb_listener" "https" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = var.ssl_policy
-  certificate_arn   = var.ssl_certificate_arn
-  // certificate_arn   = "${aws_acm_certificate_validation.main.certificate_arn}"
+  certificate_arn   = var.ssl_certificate_arn == null ? aws_acm_certificate_validation.main.certificate_arn : var.ssl_certificate_arn
 
   default_action {
     target_group_arn = aws_lb_target_group.https_default.arn

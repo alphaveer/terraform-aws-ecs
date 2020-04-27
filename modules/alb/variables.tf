@@ -25,10 +25,16 @@ variable "ssl_policy" {
 }
 
 variable "domain_name" {
-  default = "shanux.com"
+  type    = string
+  default = ""
 }
 
 variable "subject_alternative_names" {
   type    = list(string)
+  default = null
+}
+
+variable "ssl_certificate_arn" {
+  type    = string
   default = null
 }

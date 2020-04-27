@@ -32,8 +32,7 @@ module "alb" {
   security_group_ids  = list(module.vpc.default_sg)
   internal            = false
   ssl_policy          = "ELBSecurityPolicy-TLS-1-2-2017-01"
-  domain_name         = "shanux.com."
-  subject_alternative_names = [ "*.shanux.com."]
+  ssl_certificate_arn = var.ssl_certificate_arn
 }
 
 module "flask" {

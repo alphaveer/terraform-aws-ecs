@@ -12,4 +12,7 @@ variable "ssh_key_name" {
   default = null
 }
 
-variable "ssl_certificate_arn" {}
+variable "ssl_certificate_arn" {
+  type    = string
+  default = null
+}
