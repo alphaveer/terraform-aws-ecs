@@ -12,6 +12,11 @@ data "aws_ami" "ecs" {
     name   = "virtualization-type"
     values = ["hvm"]
   }
+  
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
 
   owners = ["591542846629"] # Canonical
 }
